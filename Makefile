@@ -16,5 +16,4 @@ test:
 	$(POETRY_RUN) pytest
 
 run:
-	$(POETRY_RUN) python -m src.main --files data/math.csv data/physics.csv data/programming.csv --report median-coffee
-
+	$(POETRY_RUN) python main.py --files data/math.csv data/physics.csv data/programming.csv --report median-coffee
