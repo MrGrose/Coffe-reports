@@ -1,0 +1,22 @@
+repos:
+  - repo: local
+    hooks:
+      - id: autofix-and-stage
+        name: autofix and stage
+        entry: bash -c 'pre-commit run end-of-file-fixer --all-files || true; pre-commit run trailing-whitespace --all-files || true; git add -u'
+        language: system
+        pass_filenames: false
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.15.5
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-added-large-files
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
